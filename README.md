@@ -6,3 +6,5 @@
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=Levasey_java-project-61&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=Levasey_java-project-61)
 [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=Levasey_java-project-61&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=Levasey_java-project-61)
 https://asciinema.org/a/ijMXvEz4wJ9DO6VNsxQmTD9HW
+https://asciinema.org/a/eRestlm2jwpgmMUgIOmMdDmsj
+https://asciinema.org/a/JQVz6K4QOQ1PKe82a3UrqvuVu

@@ -11,6 +11,7 @@ public class App {
                 "1 - Greet\n" +
                 "2 - Even\n" +
                 "3 - Calc\n" +
+                "4 - GCD\n" +
                 "0 - Exit\n" +
                 "Your choice: ");
 
@@ -19,6 +20,7 @@ public class App {
             case 1 -> greeting();
             case 2 -> Game.even();
             case 3 -> Game.calc();
+            case 4 -> Game.gcd();
             case 0 -> System.out.println("Goodbuy");
         }
 
