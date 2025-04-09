@@ -13,17 +13,19 @@ public class App {
                 "3 - Calc\n" +
                 "4 - GCD\n" +
                 "5 - Progression\n" +
+                "6 - Prime\n" +
                 "0 - Exit\n" +
                 "Your choice: ");
 
         int choice = scanner.nextInt();
         switch (choice) {
             case 1 -> greeting();
-            case 2 -> Game.even();
-            case 3 -> Game.calc();
-            case 4 -> Game.gcd();
-            case 5-> Game.progression();
-            case 0 -> System.out.println("Goodbuy");
+            case 2 -> Even.even();
+            case 3 -> Calculate.calc();
+            case 4 -> Gcd.gcd();
+            case 5-> Progression.progression();
+            case 6 -> Prime.prime();
+            case 0 -> System.out.println("Goodbye");
         }
 
     }
