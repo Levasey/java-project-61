@@ -1,4 +1,4 @@
-package hexlet.code;
+package hexlet.code.games;
 
 import java.util.Scanner;
 
@@ -24,6 +24,11 @@ public class Game {
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
         setUserName();
-        System.out.println("Hello, " + userName);
+        System.out.println("Hello, " + userName + "!");
+    }
+
+    public static void greet() {
+        Game game = new Game();
+        game.greeting();
     }
 }

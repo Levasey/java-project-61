@@ -1,8 +1,8 @@
 package hexlet.code;
 
-import java.util.Scanner;
+import hexlet.code.games.*;
 
-import static hexlet.code.Cli.greeting;
+import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
@@ -19,11 +19,11 @@ public class App {
 
         int choice = scanner.nextInt();
         switch (choice) {
-            case 1 -> greeting();
+            case 1 -> Game.greet();
             case 2 -> Even.even();
             case 3 -> Calculate.calc();
             case 4 -> Gcd.gcd();
-            case 5-> Progression.progression();
+            case 5 -> Progression.progression();
             case 6 -> Prime.prime();
             case 0 -> System.out.println("Goodbye");
         }
