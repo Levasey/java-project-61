@@ -21,12 +21,11 @@ public class App {
         switch (choice) {
             case 1 -> Game.greet();
             case 2 -> Even.even();
-            case 3 -> Calculate.calc();
+            case 3 -> Calculate.launch();
             case 4 -> Gcd.gcd();
             case 5 -> Progression.progression();
             case 6 -> Prime.prime();
             case 0 -> System.out.println("Goodbye");
         }
-
     }
 }

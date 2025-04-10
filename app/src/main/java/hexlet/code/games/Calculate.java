@@ -1,46 +1,39 @@
 package hexlet.code.games;
 
-import java.util.Scanner;
-
 public class Calculate {
-    public static void calc() {
-        Game game = new Game();
-        game.greeting();
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("What is the result of the expression?");
+    private static final char[] OPERATORS = {'+', '-', '*'};
 
-        int roundsCount = 3;
-        while (roundsCount > 0) {
-            int number1 = (int) ((Math.random() * 100) + 1);
-            int number2 = (int) ((Math.random() * 100) + 1);
-            char[] operators = {'+', '-', '*'};
-            char op = operators[(int) (Math.random() * operators.length)];
-            int correctAnswer = 0;
-            switch (op) {
-                case '+' -> {
-                    System.out.println("Question: " + number1 + " + " + number2);
-                    correctAnswer = number1 + number2;
-                }
-                case '-' -> {
-                    System.out.println("Question: " + number1 + " - " + number2);
-                    correctAnswer = number1 - number2;
-                }
-                case '*' -> {
-                    System.out.println("Question: " + number1 + " * " + number2);
-                    correctAnswer = number1 * number2;
-                }
+    private static String[] generateTask() {
+        int number1 = Engine.randomNumber(0, 100);
+        int number2 = Engine.randomNumber(0, 100);
+        char op = OPERATORS[Engine.randomNumber(0, OPERATORS.length - 1)];
 
-            }
-            System.out.print("Your answer: ");
-            int answer = scanner.nextInt();
-            if (answer == correctAnswer) {
-                System.out.println("Correct!");
-                roundsCount--;
-            } else {
-                game.badAnswer(String.valueOf(answer), String.valueOf(correctAnswer));
-                return;
-            }
+        String question = number1 + " " + op + " " + number2;
+        String answer = calculate(number1, number2, op);
+
+        return new String[]{question, answer};
+    }
+
+    private static String calculate(int number1, int number2, char op) {
+        return switch (op) {
+            case '+' -> String.valueOf(number1 + number2);
+            case '-' -> String.valueOf(number1 - number2);
+            case '*' -> String.valueOf(number1 * number2);
+            default -> throw new RuntimeException("Unknown operator: " + op);
+        };
+    }
+
+    private static String[][] prepareGameData() {
+        String[][] gameData = new String[Engine.ROUNDS_COUNT][2];
+        for (int i = 0; i < Engine.ROUNDS_COUNT; i++) {
+            gameData[i] = generateTask();
         }
-        game.congratulations();
+        return gameData;
+    }
+
+    public static void launch() {
+        String rules = "What is the result of the expression?";
+        String[][] gameData = prepareGameData();
+        Engine.run(rules, gameData);
     }
 }
