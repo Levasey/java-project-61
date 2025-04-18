@@ -1,51 +1,40 @@
 package hexlet.code.games;
 
-import java.util.Random;
-import java.util.Scanner;
-
 public class Progression {
-    public static void progression() {
-        Game game = new Game();
-        game.greeting();
-        Scanner scanner = new Scanner(System.in);
 
-        System.out.println("What number is missing in the progression?");
+    private static String[] generateTask() {
+        int length = Engine.randomNumber(5, 10);
+        int firstTerm = Engine.randomNumber(0, 20);
+        int difference = Engine.randomNumber(0, 10);
+        int hiddenIndex = Engine.randomNumber(0, length - 1);
 
-        int roundsCount = 3;
-        while (roundsCount > 0) {
-            Random random = new Random();
-            int length = 5 + random.nextInt(6);
-            int firstTerm = 1 + random.nextInt(20);
-            int difference = 1 + random.nextInt(10);
+        StringBuilder progression = new StringBuilder();
 
-            int[] progression = new int[length];
-            for (int i = 0; i < length; i++) {
-                progression[i] = firstTerm + i * difference;
-            }
+        int hiddenValue = 0;
 
-            int hiddenIndex = random.nextInt(length);
-            int hiddenValue = progression[hiddenIndex];
-            progression[hiddenIndex] = -1;
-            System.out.print("Question: ");
-            for (int num : progression) {
-                if (num == -1) {
-                    System.out.print(".. ");
-                } else {
-                    System.out.print(num + " ");
-                }
-            }
-            System.out.println();
-            System.out.print("Your answer: ");
-            int answer = scanner.nextInt();
-
-            if (hiddenValue == answer) {
-                System.out.println("Correct!");
-                roundsCount--;
+        for (int i = 0; i < length; i++) {
+            int currentTerm = firstTerm + i * difference;
+            if (i == hiddenIndex) {
+                progression.append(".. ");
+                hiddenValue = currentTerm;
             } else {
-                game.badAnswer(String.valueOf(answer), String.valueOf(hiddenValue));
-                return;
+                progression.append(currentTerm).append(" ");
             }
         }
-        game.congratulations();
+        return new String[]{String.valueOf(progression), String.valueOf(hiddenValue)};
+    }
+
+    private static String[][] prepareGameData() {
+        String[][] gameData = new String[Engine.ROUNDS_COUNT][2];
+        for (int i = 0; i < Engine.ROUNDS_COUNT; i++) {
+            gameData[i] = generateTask();
+        }
+        return gameData;
+    }
+
+    public static void launch() {
+        String rules = "What number is missing in the progression?";
+        String[][] gameData = prepareGameData();
+        Engine.run(rules, gameData);
     }
 }

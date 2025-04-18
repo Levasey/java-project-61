@@ -18,7 +18,7 @@ public class Engine {
 
             System.out.println("Question: " + question);
             System.out.print("Your answer: ");
-            String answer = scanner.nextLine().trim();
+            String answer = scanner.nextLine().trim().toLowerCase();
 
             if (answer.equals(correctAnswer)) {
                 System.out.println("Correct!");

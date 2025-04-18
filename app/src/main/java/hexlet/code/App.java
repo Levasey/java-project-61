@@ -20,11 +20,11 @@ public class App {
         int choice = scanner.nextInt();
         switch (choice) {
             case 1 -> Game.greet();
-            case 2 -> Even.even();
+            case 2 -> Even.launch();
             case 3 -> Calculate.launch();
-            case 4 -> Gcd.gcd();
-            case 5 -> Progression.progression();
-            case 6 -> Prime.prime();
+            case 4 -> Gcd.launch();
+            case 5 -> Progression.launch();
+            case 6 -> Prime.launch();
             case 0 -> System.out.println("Goodbye");
         }
     }

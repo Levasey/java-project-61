@@ -1,32 +1,31 @@
 package hexlet.code.games;
 
-import java.util.Scanner;
-
 public class Even {
-    public static void even() {
-        Game game = new Game();
-        game.greeting();
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
+    private static String[] generateTask() {
+        int number = Engine.randomNumber(0, 100);
 
-        int roundsCount = 3;
-        while (roundsCount > 0) {
-            int number = (int) (Math.random() * 100) + 1;
-            System.out.println("Question: " + number);
-            System.out.print("Your answer: ");
-            String answer = scanner.nextLine().toLowerCase();
+        String question = String.valueOf(number);
+        String answer = calculate(number);
 
-            boolean isEven = number % 2 == 0;
-            String correctAnswer = isEven ? "yes" : "no";
+        return new String[]{question, answer};
+    }
 
-            if (answer.equals(correctAnswer)) {
-                System.out.println("Correct!");
-                roundsCount--;
-            } else {
-                game.badAnswer(answer, correctAnswer);
-                return;
-            }
+    private static String calculate(int number) {
+        boolean isEven = number % 2 == 0;
+        return isEven ? "yes" : "no";
+    }
+
+    private static String[][] prepareGameData() {
+        String[][] gameData = new String[Engine.ROUNDS_COUNT][2];
+        for (int i = 0; i < Engine.ROUNDS_COUNT; i++) {
+            gameData[i] = generateTask();
         }
-        game.congratulations();
+        return gameData;
+    }
+
+    public static void launch() {
+        String rules = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+        String[][] gameData = prepareGameData();
+        Engine.run(rules, gameData);
     }
 }
