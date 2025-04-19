@@ -5,8 +5,8 @@ import java.math.BigInteger;
 public class Gcd {
 
     private static String[] generateTask() {
-        int number1 = Engine.randomNumber(0, 100);
-        int number2 = Engine.randomNumber(0, 100);
+        int number1 = Engine.randomNumber(Engine.MIN_NUMBER, Engine.MAX_NUMBER);
+        int number2 = Engine.randomNumber(Engine.MIN_NUMBER, Engine.MAX_NUMBER);
 
         String question = number1 + " " + number2;
         String answer = calculate(number1, number2);

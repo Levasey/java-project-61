@@ -1,6 +1,11 @@
 package hexlet.code;
 
-import hexlet.code.games.*;
+import hexlet.code.games.Calculate;
+import hexlet.code.games.Cli;
+import hexlet.code.games.Even;
+import hexlet.code.games.Gcd;
+import hexlet.code.games.Prime;
+import hexlet.code.games.Progression;
 
 import java.util.Scanner;
 
@@ -27,6 +32,7 @@ public class App {
             case 5 -> Progression.launch();
             case 6 -> Prime.launch();
             case 0 -> System.out.println("Goodbye");
+            default -> throw new IllegalStateException("Unexpected value: " + choice);
         }
     }
 }

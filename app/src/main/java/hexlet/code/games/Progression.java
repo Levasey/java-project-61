@@ -3,10 +3,13 @@ package hexlet.code.games;
 public class Progression {
 
     private static String[] generateTask() {
-        int length = Engine.randomNumber(5, 10);
-        int firstTerm = Engine.randomNumber(0, 20);
-        int difference = Engine.randomNumber(0, 10);
-        int hiddenIndex = Engine.randomNumber(0, length - 1);
+        int minLength = 5;
+        int maxLength = 10;
+        int diff = 10;
+        int length = Engine.randomNumber(minLength, maxLength);
+        int firstTerm = Engine.randomNumber(Engine.MIN_NUMBER, Engine.MAX_NUMBER);
+        int difference = Engine.randomNumber(Engine.MIN_NUMBER, diff);
+        int hiddenIndex = Engine.randomNumber(Engine.MIN_NUMBER, length - 1);
 
         StringBuilder progression = new StringBuilder();
 

@@ -3,7 +3,7 @@ package hexlet.code.games;
 public class Prime {
 
     private static String[] generateTask() {
-        int number = Engine.randomNumber(0, 100);
+        int number = Engine.randomNumber(Engine.MIN_NUMBER, Engine.MAX_NUMBER);
 
         String question = String.valueOf(number);
         String answer = calculate(number);

@@ -5,6 +5,8 @@ import java.util.Scanner;
 public class Engine {
 
     public static final int ROUNDS_COUNT = 3;
+    public static final int MAX_NUMBER = 100;
+    public static final int MIN_NUMBER = 0;
 
     public static void run(String rules, String[][] gameData) {
         Scanner scanner = new Scanner(System.in);
