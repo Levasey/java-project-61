@@ -1,12 +1,15 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
+import hexlet.code.Utils;
+
 import java.math.BigInteger;
 
 public class Gcd {
 
     private static String[] generateTask() {
-        int number1 = Engine.randomNumber(0, 100);
-        int number2 = Engine.randomNumber(0, 100);
+        int number1 = Utils.randomNumber(Utils.MIN_NUMBER, Utils.MAX_NUMBER);
+        int number2 = Utils.randomNumber(Utils.MIN_NUMBER, Utils.MAX_NUMBER);
 
         String question = number1 + " " + number2;
         String answer = calculate(number1, number2);

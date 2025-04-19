@@ -1,4 +1,4 @@
-package hexlet.code.games;
+package hexlet.code;
 
 import java.util.Scanner;
 
@@ -31,9 +31,5 @@ public class Engine {
             }
         }
         System.out.println("Congratulations, " + userName + "!");
-    }
-
-    public static int randomNumber(int min, int max) {
-        return (int) (Math.random() * (max - min + 1)) + min;
     }
 }

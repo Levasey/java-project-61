@@ -1,18 +1,21 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
+import hexlet.code.Utils;
+
 public class Even {
     private static String[] generateTask() {
-        int number = Engine.randomNumber(0, 100);
+        int number = Utils.randomNumber(Utils.MIN_NUMBER, Utils.MAX_NUMBER);
 
         String question = String.valueOf(number);
-        String answer = calculate(number);
+        boolean isEven = isEven(number);
+        String answer = Utils.answer(isEven);
 
         return new String[]{question, answer};
     }
 
-    private static String calculate(int number) {
-        boolean isEven = number % 2 == 0;
-        return isEven ? "yes" : "no";
+    private static boolean isEven(int number) {
+        return number % 2 == 0;
     }
 
     private static String[][] prepareGameData() {

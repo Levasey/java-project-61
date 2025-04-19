@@ -1,31 +1,33 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
+import hexlet.code.Utils;
+
 public class Prime {
 
     private static String[] generateTask() {
-        int number = Engine.randomNumber(0, 100);
+        int number = Utils.randomNumber(Utils.MIN_NUMBER, Utils.MAX_NUMBER);
 
         String question = String.valueOf(number);
-        String answer = calculate(number);
+        boolean isPrime = isPrime(number);
+        String answer = Utils.answer(isPrime);
 
         return new String[]{question, answer};
     }
 
-    private static String calculate(int number) {
-        boolean isPrime = true;
+    private static boolean isPrime(int number) {
         if (number <= 1) {
-            isPrime = false;
+            return false;
         }
         if (number % 2 == 0) {
-            isPrime = false;
+            return false;
         }
         for (int i = 3; i * i <= number; i += 2) {
             if (number % i == 0) {
-                isPrime = false;
-                break;
+                return false;
             }
         }
-        return isPrime ? "yes" : "no";
+        return true;
     }
 
     private static String[][] prepareGameData() {

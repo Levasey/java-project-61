@@ -1,12 +1,16 @@
 package hexlet.code.games;
 
+
+import hexlet.code.Engine;
+import hexlet.code.Utils;
+
 public class Calculate {
     private static final char[] OPERATORS = {'+', '-', '*'};
 
     private static String[] generateTask() {
-        int number1 = Engine.randomNumber(0, 100);
-        int number2 = Engine.randomNumber(0, 100);
-        char op = OPERATORS[Engine.randomNumber(0, OPERATORS.length - 1)];
+        int number1 = Utils.randomNumber(Utils.MIN_NUMBER, Utils.MAX_NUMBER);
+        int number2 = Utils.randomNumber(Utils.MIN_NUMBER, Utils.MAX_NUMBER);
+        char op = OPERATORS[Utils.randomNumber(Utils.MIN_NUMBER, OPERATORS.length - 1)];
 
         String question = number1 + " " + op + " " + number2;
         String answer = calculate(number1, number2, op);

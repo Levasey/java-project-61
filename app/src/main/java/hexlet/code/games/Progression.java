@@ -1,27 +1,31 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
+import hexlet.code.Utils;
+
 public class Progression {
 
     private static String[] generateTask() {
-        int length = Engine.randomNumber(5, 10);
-        int firstTerm = Engine.randomNumber(0, 20);
-        int difference = Engine.randomNumber(0, 10);
-        int hiddenIndex = Engine.randomNumber(0, length - 1);
+        int minLength = 5;
+        int maxLength = 10;
+        int diff = 10;
 
-        StringBuilder progression = new StringBuilder();
+        int length = Utils.randomNumber(minLength, maxLength);
+        int firstTerm = Utils.randomNumber(Utils.MIN_NUMBER, Utils.MAX_NUMBER);
+        int difference = Utils.randomNumber(Utils.MIN_NUMBER, diff);
+        int hiddenIndex = Utils.randomNumber(Utils.MIN_NUMBER, length - 1);
 
-        int hiddenValue = 0;
+        int[] progression = Utils.generateProgression(firstTerm, difference, length);
+        int hiddenValue = progression[hiddenIndex];
 
+        String[] progressionWithHiddenIndex = new String[length];
         for (int i = 0; i < length; i++) {
-            int currentTerm = firstTerm + i * difference;
-            if (i == hiddenIndex) {
-                progression.append(".. ");
-                hiddenValue = currentTerm;
-            } else {
-                progression.append(currentTerm).append(" ");
-            }
+            progressionWithHiddenIndex[i] = (i == hiddenIndex) ? ".." : String.valueOf(progression[i]);
         }
-        return new String[]{String.valueOf(progression), String.valueOf(hiddenValue)};
+        return new String[]{
+                String.join(" ", progressionWithHiddenIndex),
+                String.valueOf(hiddenValue)
+        };
     }
 
     private static String[][] prepareGameData() {
