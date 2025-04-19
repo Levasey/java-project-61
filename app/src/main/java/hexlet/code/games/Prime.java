@@ -13,8 +13,12 @@ public class Prime {
 
     private static String calculate(int number) {
         boolean isPrime = true;
-        if (number <= 1) isPrime = false;
-        if (number % 2 == 0) isPrime = false;
+        if (number <= 1) {
+            isPrime = false;
+        }
+        if (number % 2 == 0) {
+            isPrime = false;
+        }
         for (int i = 3; i * i <= number; i += 2) {
             if (number % i == 0) {
                 isPrime = false;
