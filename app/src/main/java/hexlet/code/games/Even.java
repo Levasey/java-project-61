@@ -9,13 +9,17 @@ public class Even {
 
         String question = String.valueOf(number);
         boolean isEven = isEven(number);
-        String answer = Utils.answer(isEven);
+        String answer = answer(isEven);
 
         return new String[]{question, answer};
     }
 
     private static boolean isEven(int number) {
         return number % 2 == 0;
+    }
+
+    private static String answer(boolean value) {
+        return value ? "yes" : "no";
     }
 
     private static String[][] prepareGameData() {

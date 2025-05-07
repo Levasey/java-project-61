@@ -3,6 +3,8 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
+import java.util.Arrays;
+
 public class Progression {
 
     private static String[] generateTask() {
@@ -15,17 +17,25 @@ public class Progression {
         int difference = Utils.randomNumber(Utils.MIN_NUMBER, diff);
         int hiddenIndex = Utils.randomNumber(Utils.MIN_NUMBER, length - 1);
 
-        int[] progression = Utils.generateProgression(firstTerm, difference, length);
+        int[] progression = generateProgression(firstTerm, difference, length);
         int hiddenValue = progression[hiddenIndex];
 
         String[] progressionWithHiddenIndex = new String[length];
-        for (int i = 0; i < length; i++) {
-            progressionWithHiddenIndex[i] = (i == hiddenIndex) ? ".." : String.valueOf(progression[i]);
-        }
+
+        Arrays.setAll(progressionWithHiddenIndex, i -> String.valueOf(progression[i]));
+        progressionWithHiddenIndex[hiddenIndex] = "..";
         return new String[]{
                 String.join(" ", progressionWithHiddenIndex),
                 String.valueOf(hiddenValue)
         };
+    }
+
+    private static int[] generateProgression(int firstTerm, int difference, int length) {
+        int[] progression = new int[length];
+        for (int i = 0; i < length; i++) {
+            progression[i] = firstTerm + i * difference;
+        }
+        return progression;
     }
 
     private static String[][] prepareGameData() {

@@ -10,7 +10,7 @@ public class Prime {
 
         String question = String.valueOf(number);
         boolean isPrime = isPrime(number);
-        String answer = Utils.answer(isPrime);
+        String answer = answer(isPrime);
 
         return new String[]{question, answer};
     }
@@ -28,6 +28,10 @@ public class Prime {
             }
         }
         return true;
+    }
+
+    private static String answer(boolean value) {
+        return value ? "yes" : "no";
     }
 
     private static String[][] prepareGameData() {
