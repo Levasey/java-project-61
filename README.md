@@ -10,11 +10,11 @@
 Brain Games is a collection of five simple console-based math games designed to train logical thinking and basic arithmetic skills.
  ## About the Project
 This project is an educational application written in Java and includes the following games:
-*Even – Determine if a number is even.
-*Calculator (Calc) – Solve a simple arithmetic problem.
-*Greatest Common Divisor (GCD) – Find the greatest common divisor of two numbers.
-*Arithmetic Progression (Progression) – Find the missing number in a sequence.
-*Prime – Determine if a number is prime.
+* Even – Determine if a number is even.
+* Calculator (Calc) – Solve a simple arithmetic problem.
+* Greatest Common Divisor (GCD) – Find the greatest common divisor of two numbers.
+* Arithmetic Progression (Progression) – Find the missing number in a sequence.
+* Prime – Determine if a number is prime.
 Each game consists of three rounds. If the player answers all questions correctly, they win the game.
 
 [![asciicast](https://asciinema.org/a/ijMXvEz4wJ9DO6VNsxQmTD9HW.svg)](https://asciinema.org/a/ijMXvEz4wJ9DO6VNsxQmTD9HW)
