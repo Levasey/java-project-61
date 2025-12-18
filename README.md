@@ -7,6 +7,7 @@
 [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=Levasey_java-project-61&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=Levasey_java-project-61)
 
 **Brain Games** 
+
 Brain Games is a collection of five simple console-based math games designed to train logical thinking and basic arithmetic skills.
  ## About the Project
 This project is an educational application written in Java and includes the following games:
